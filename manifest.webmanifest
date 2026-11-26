@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "Ombre Lectrice",
+  "short_name": "Ombre",
+  "lang": "fr",
+  "description": "Bibliothèque et lecteur audio IA local",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#181427",
+  "theme_color": "#181427",
+  "icons": [
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
