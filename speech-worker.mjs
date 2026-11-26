@@ -10,7 +10,7 @@ async function initialize(){
   const ort=await import("/vocal/runtime/ort.wasm.min.mjs");
   ort.env.wasm.numThreads=1;
   ort.env.wasm.wasmPaths=self.location.origin+"/vocal/runtime/";
-  helper=await import("/vocal/helper.mjs");
+  helper=await import("/vocal/helper-v19.mjs");
   base=self.location.origin+"/vocal/models";
   report("Vérification des modèles…");
   const response=await fetch(base+"/onnx/tts.json");
