@@ -9,7 +9,10 @@
       "/vocal/*",
       "/manifest.webmanifest",
       "/app-icon.svg",
-      "/sw.js"
+      "/sw.js",
+      "/",
+      "/index.html",
+      "/speech-worker.mjs"
     ]
   }
 }
