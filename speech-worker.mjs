@@ -8,7 +8,12 @@ async function initialize(){
  initPromise=(async()=>{
   report("Chargement de la bibliothèque IA…");
   const ort=await import("/vocal/runtime/ort.wasm.min.mjs");
-  ort.env.wasm.numThreads=1;
+  const forceSingle=new URL(self.location.href).searchParams.get("single")==="1";
+  const mobile=/iPhone|iPad|Android|Mobile/i.test(self.navigator.userAgent||"");
+  const cores=Number(self.navigator.hardwareConcurrency)||2;
+  const threads=self.crossOriginIsolated&&!forceSingle?Math.max(1,Math.min(mobile?2:4,Math.floor(cores/2))):1;
+  ort.env.wasm.numThreads=threads;
+  report("Chargement IA · "+threads+" cœur(s) de calcul");
   ort.env.wasm.wasmPaths=self.location.origin+"/vocal/runtime/";
   helper=await import("/vocal/helper-v19.mjs");
   base=self.location.origin+"/vocal/models";
@@ -19,7 +24,7 @@ async function initialize(){
   let stage="configuration";
   const loaded=await helper.loadTextToSpeech(base+"/onnx",{executionProviders:["wasm"],graphOptimizationLevel:"all"},(name,i,total)=>{stage=name;report("Chargement modèle "+i+"/"+total+" : "+name)}).catch(e=>{throw Error("Modèle "+stage+" : "+e.message)});
   engine=loaded.textToSpeech;
-  report("Moteur prêt · calcul en arrière-plan");
+  report("Moteur prêt · "+threads+" cœur(s) · calcul en arrière-plan");
  })().catch(e=>{initPromise=null;throw e});
  return initPromise;
 }
