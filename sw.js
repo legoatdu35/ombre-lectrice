@@ -1,0 +1,7 @@
+// Cache de l'interface uniquement. Les livres et les passages audio restent dans IndexedDB.
+const CACHE='ombre-shell-v31';
+const SHELL=['/','/manifest.webmanifest','/app-icon.svg','/speech-worker.mjs'];
+const JSZIP='https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js';
+self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);await Promise.all(SHELL.map(async path=>{try{const r=await fetch(path,{cache:'reload'});if(r.ok)await cache.put(path,r)}catch{}}));try{const r=await fetch(JSZIP,{mode:'cors'});if(r.ok)await cache.put(JSZIP,r)}catch{}await self.skipWaiting()})()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('ombre-shell-')&&key!==CACHE)await caches.delete(key);await self.clients.claim()})()));
+self.addEventListener('fetch',event=>{const r=event.request,u=new URL(r.url);if(r.method!=='GET')return;const nav=r.mode==='navigate'&&u.origin===self.location.origin&&(u.pathname==='/'||u.pathname==='/index.html');const asset=u.origin===self.location.origin&&SHELL.includes(u.pathname);const lib=u.href===JSZIP;if(!nav&&!asset&&!lib)return;event.respondWith((async()=>{const cache=await caches.open(CACHE),key=nav?'/':lib?JSZIP:u.pathname;try{const response=await fetch(r);if(response.ok)await cache.put(key,response.clone());return response}catch{const saved=await cache.match(key);return saved||new Response('Ressource hors connexion',{status:503})}})())});
