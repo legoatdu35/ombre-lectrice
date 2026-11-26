@@ -1,7 +1,12 @@
 {
   "name": "ombre-lectrice",
   "compatibility_date": "2026-11-26",
+  "main": "vocal-worker.mjs",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/vocal/*"
+    ]
   }
 }
