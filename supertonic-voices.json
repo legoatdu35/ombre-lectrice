@@ -1,0 +1,86 @@
+{
+  "engine": "Supertonic 3",
+  "language": "fr",
+  "source": "https://huggingface.co/Supertone/supertonic-3",
+  "license": "OpenRAIL-M",
+  "licenseUrl": "https://huggingface.co/Supertone/supertonic-3/blob/main/LICENSE",
+  "demo": "https://huggingface.co/spaces/Supertone/supertonic-3",
+  "voices": [
+    {
+      "id": "M1",
+      "type": "masculine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/M1.json"
+    },
+    {
+      "id": "M2",
+      "type": "masculine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/M2.json"
+    },
+    {
+      "id": "M3",
+      "type": "masculine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/M3.json"
+    },
+    {
+      "id": "M4",
+      "type": "masculine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/M4.json"
+    },
+    {
+      "id": "M5",
+      "type": "masculine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/M5.json"
+    },
+    {
+      "id": "F1",
+      "type": "feminine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/F1.json"
+    },
+    {
+      "id": "F2",
+      "type": "feminine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/F2.json"
+    },
+    {
+      "id": "F3",
+      "type": "feminine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/F3.json"
+    },
+    {
+      "id": "F4",
+      "type": "feminine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/F4.json"
+    },
+    {
+      "id": "F5",
+      "type": "feminine",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/voice_styles/F5.json"
+    }
+  ],
+  "models": [
+    {
+      "file": "duration_predictor.onnx",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/onnx/duration_predictor.onnx"
+    },
+    {
+      "file": "text_encoder.onnx",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/onnx/text_encoder.onnx"
+    },
+    {
+      "file": "vector_estimator.onnx",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/onnx/vector_estimator.onnx"
+    },
+    {
+      "file": "vocoder.onnx",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/onnx/vocoder.onnx"
+    },
+    {
+      "file": "tts.json",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/onnx/tts.json"
+    },
+    {
+      "file": "unicode_indexer.json",
+      "url": "https://huggingface.co/Supertone/supertonic-3/resolve/main/onnx/unicode_indexer.json"
+    }
+  ]
+}
