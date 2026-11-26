@@ -1,3 +1,6 @@
 *
 !index.html
 !speech-worker.mjs
+!manifest.webmanifest
+!app-icon.svg
+!sw.js
